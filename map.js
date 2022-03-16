@@ -34,8 +34,12 @@ map.on('zoomend', function(ev) {
 // point
 function createPoint(map, heatmap, latlng, value)
 {
+    // A point on the heatmap consists of three values - the latitude, the
+    // longitude, and the intensity of the point, whereas a normal marker is
+    // just the latitude and longitude
     var latlngint = latlng;
     latlngint.push(value);
+
     var marker = L.marker(latlng).addTo(map);
     
     heatmap.addLatLng(latlng);
